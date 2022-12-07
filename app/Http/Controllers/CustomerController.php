@@ -36,7 +36,11 @@ class CustomerController extends Controller
      */
     public function store(StoreCustomerRequest $request)
     {
-        //
+        $post = Customer::create($request->all());
+
+        return response()->json([
+            'post' => $post
+        ],200);
     }
 
     /**
