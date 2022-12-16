@@ -72,9 +72,13 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCustomerRequest $request, Customer $customer)
+    public function update(StoreCustomerRequest $request, Customer $customer)
     {
-        //
+        $customer->update($request->all());
+
+        return response()->json([
+            'update' => $customer
+        ],200);
     }
 
     /**
